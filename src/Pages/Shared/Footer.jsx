@@ -29,11 +29,11 @@ const footer = () => {
                     <a className="link link-hover">Contact</a>
                     <a className="link link-hover">Our blog</a>
                 </nav>
-                <nav className='w-1/4'>
+                <nav className='w-1/4 space-y-2'>
                     <h6 className="footer-title">About us</h6>
                     <p>Where beauty meets confidence — Jerin 's Parlour
-                        <br />is your go-to destination for radiant skin,
-                        <br />flawless style, and personalized care.</p>
+                        is your go-to destination for radiant skin,
+                        flawless style, and personalized care.</p>
                     <div className='flex text-2xl gap-2'>
                         <FaFacebook></FaFacebook>
                         <FaInstagram></FaInstagram>

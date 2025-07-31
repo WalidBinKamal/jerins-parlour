@@ -28,7 +28,7 @@ const Services = () => {
                         )
                     }
                 </div>
-                <button className="btn bg-pink-500 px-10 text-white rounded-md"><Link>Explore More</Link></button>
+                <button className="btn bg-pink-500 px-10 text-white rounded-md"><Link to="/services">Explore More</Link></button>
             </div>
         </div>
     );
