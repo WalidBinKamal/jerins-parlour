@@ -7,7 +7,6 @@ const ProjectForm = () => {
         handleSubmit,
     } = useForm()
     const onSubmit = (data) => console.log(data)
-
     return (
         <div className="md:max-w-7xl md:mx-auto my-20">
             <h1 className="md:w-2/4 mx-auto text-center text-4xl font-semibold mb-6">Let us handle your

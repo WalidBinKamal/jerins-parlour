@@ -4,6 +4,7 @@ import useServices from "../../Hooks/useServices";
 
 const Services = () => {
     const [services, refetch,] = useServices()
+    refetch()
     return (
         <div className="bg-white">
             <div className="font-semibold py-20 text-center max-w-7xl mx-auto">

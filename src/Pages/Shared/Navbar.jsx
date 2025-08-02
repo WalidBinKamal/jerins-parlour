@@ -1,14 +1,31 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import icon from '../../assets/logo.png'
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import useAuth from '../../Hooks/useAuth';
+import { BarLoader } from 'react-spinners';
 
 const Navbar = () => {
+    const { user, logout, loading, isLoggingOut, refetch } = useAuth()
+    const handleLogOut = () => {
+        logout()
+        refetch()
+    }
     const lists = <>
         <li><NavLink to="/" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Home</NavLink></li>
         <li><NavLink to="/services" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Our Packages</NavLink></li>
-        <li><NavLink to="/ourTeam" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Our Team</NavLink></li>
+        <li><NavLink to="/dashboard" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Dashboard</NavLink></li>
         <li><NavLink to="/contact" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Contact Us</NavLink></li>
-        <li><NavLink to="/login" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Login</NavLink></li>
+        {
+            user ?
+                <li><button onClick={handleLogOut} className='md:px-10 md:py-2'>Log Out</button></li>
+                :
+                <li><Link to="/login" className='md:px-10 md:py-2' >Login</Link></li>
+        }
     </>
+    if (loading || isLoggingOut) {
+        <BarLoader></BarLoader>
+    }
+    const location = useLocation()
     return (
         <div className='md:fixed top-0 left-0 md:w-full bg-black bg-opacity-30 z-50'>
             <div className="navbar mx-auto md:w-full md:max-w-7xl px-4 py-2">
