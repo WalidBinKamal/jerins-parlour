@@ -1,6 +1,5 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import icon from '../../assets/logo.png'
-import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import useAuth from '../../Hooks/useAuth';
 import { BarLoader } from 'react-spinners';
 
