@@ -1,20 +1,23 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import icon from '../../assets/logo.png'
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/useAuth';
 
 const Login = () => {
-    const { login, setLocation } = useAuth()
+    const { login } = useAuth()
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
     const {
         register,
         handleSubmit,
     } = useForm()
     const onSubmit = (data) => {
         login(data)
+        navigate(from)
     }
-    const location = useLocation()
-    const from = location.state?.from?.pathname || '/'
-    setLocation(from)
+
+
     return (
         <div className='bg-white'>
             <div className='grid justify-center item center gap-4 md:mt-28 mt-10'>

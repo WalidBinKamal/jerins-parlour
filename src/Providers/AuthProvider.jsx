@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
 import api from "../Hooks/api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import useToast from "../Hooks/useToast";
@@ -7,8 +7,7 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const queryClient = useQueryClient()
     const toast = useToast()
-    const [location, setLocation] = useState(null)
-    console.log(location)
+  
 
     // regsitering user
     const { mutate: signup, isLoading: signupLoading, error: signupError } = useMutation({
@@ -61,7 +60,6 @@ const AuthProvider = ({ children }) => {
         user,
         login,
         signup,
-        setLocation,
         refetch,
         logout,
         isLoading,
