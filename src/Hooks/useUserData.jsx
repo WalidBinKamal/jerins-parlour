@@ -11,7 +11,6 @@ const useUserData = ( email ) => {
             return res.data
         }
     })
-    console.log(userData)
     return [userData, refetch, loading]
 };
 
