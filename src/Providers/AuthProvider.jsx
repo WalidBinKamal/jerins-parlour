@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import api from "../Hooks/api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import useToast from "../Hooks/useToast";
@@ -7,7 +7,6 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const queryClient = useQueryClient()
     const toast = useToast()
-  
 
     // regsitering user
     const { mutate: signup, isLoading: signupLoading, error: signupError } = useMutation({
@@ -34,7 +33,7 @@ const AuthProvider = ({ children }) => {
     })
 
     // fetching current user data
-    const { data: userData, isLoading, isError, refetch } = useQuery({
+    const { data: userData, isLoading: loading, isError, refetch } = useQuery({
         queryKey: ["user"],
         queryFn: async () => {
             const res = await api.get("/auth/checkUser")
@@ -62,7 +61,7 @@ const AuthProvider = ({ children }) => {
         signup,
         refetch,
         logout,
-        isLoading,
+        loading,
         isError,
         loginLoading,
         loginError,

@@ -10,6 +10,7 @@ import Dashboard from "../Layout/Dashboard";
 import Booking from "../Pages/Dashboard/Booking";
 import BookingList from "../Pages/Dashboard/BookingList";
 import Review from "../Pages/Dashboard/Review";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const Router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'booking',

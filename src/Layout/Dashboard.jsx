@@ -33,7 +33,7 @@ const Dashboard = () => {
                     </li>
                 </ul>
             </div>
-            <div className='bg-slate-200 w-full'>
+            <div className='bg-slate-100 w-full'>
                 <Outlet></Outlet>
             </div>
         </div>

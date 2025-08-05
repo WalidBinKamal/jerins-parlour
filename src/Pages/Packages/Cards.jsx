@@ -1,23 +1,20 @@
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import useServices from "../../Hooks/useServices";
 import useAuth from "../../Hooks/useAuth";
-import useUserData from "../../Hooks/useUserData";
 
 
 const Cards = () => {
     const [services, refetch,] = useServices()
-    const { user: email } = useAuth()
+    const { user: email, setBooking } = useAuth()
     const location = useLocation();
     const navigate = useNavigate();
 
-    const [userData,,] = useUserData(email)
-    console.log(userData)
-
     const handleBooking = (id) => {
-        console.log(id)
+        // console.log(booking)
         if (!email) {
             navigate("/login", { state: { from: location }, replace: true })
         }
+        navigate("/dashboard/booking", { state: { serviceId: id } })
     }
     refetch()
     return (
