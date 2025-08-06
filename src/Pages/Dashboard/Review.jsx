@@ -11,7 +11,7 @@ import useToast from "../../Hooks/useToast";
 
 const Review = () => {
     const { user: email, } = useAuth()
-    const [userData, refetch,] = useUserData(email)
+    const [userData, ,] = useUserData(email)
     const fullName = userData.firstName + " " + userData.lastName
     const axiosSecure = useAxiosSecure()
     const toast = useToast()
