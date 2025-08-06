@@ -11,6 +11,7 @@ import Booking from "../Pages/Dashboard/Booking";
 import BookingList from "../Pages/Dashboard/BookingList";
 import Review from "../Pages/Dashboard/Review";
 import PrivateRoute from "./PrivateRoute";
+import MyProfile from "../Pages/Dashboard/MyProfile";
 
 const Router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const Router = createBrowserRouter([
       {
         path: 'review',
         element: <Review></Review>
+      },
+      {
+        path: 'myProfile',
+        element: <MyProfile></MyProfile>
       },
     ]
   }

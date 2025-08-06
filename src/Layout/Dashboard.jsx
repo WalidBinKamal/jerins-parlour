@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import icon from "../assets/logo.png"
 import { FaOpencart } from 'react-icons/fa6';
 import { LuListCollapse, LuMessageSquareMore } from 'react-icons/lu';
+import { CgProfile } from 'react-icons/cg';
 
 const Dashboard = () => {
     return (
@@ -30,6 +31,13 @@ const Dashboard = () => {
                         >
                             <LuMessageSquareMore></LuMessageSquareMore>
                             Review</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/myProfile"
+                            className={({ isActive }) => `md:px-5 md:py-2 ${isActive ? 'text-pink-500 font-semibold' : ''}`}
+                        >
+                            <CgProfile className='text-xl'></CgProfile>
+                            My Profile</NavLink>
                     </li>
                 </ul>
             </div>

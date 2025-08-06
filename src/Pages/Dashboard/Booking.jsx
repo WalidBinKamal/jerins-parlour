@@ -30,6 +30,7 @@ const Booking = () => {
         name: service.title,
         description: service.description,
         image: service.image,
+        status: "Pending",
         price: service.price,
     }
 
@@ -47,7 +48,7 @@ const Booking = () => {
 
     return (
         <div>
-            <DashboardNavbar title="Book" name={userData.firstName}></DashboardNavbar>
+            <DashboardNavbar title="Book" name={fullName}></DashboardNavbar>
             <div className="mt-10 ml-8 md:w-2/4">
                 <div>
                     <input className="p-4 mb-5 w-full" value={fullName} readOnly />
