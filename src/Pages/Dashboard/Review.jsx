@@ -22,7 +22,7 @@ const Review = () => {
         control,
         reset,
     } = useForm({
-        defaultValues: { name: "", designation: "", image: "", review: "", rating: 0, email: email },
+        defaultValues: { name: "", designation: "", review: "", rating: 0, email: email },
     })
     const ratingRef = useRef(null);
 
