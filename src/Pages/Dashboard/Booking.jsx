@@ -19,7 +19,7 @@ const Booking = () => {
 
     useEffect(() => {
         if (serviceId) {
-            axiosSecure.get(`/service/${serviceId}`)
+            axiosSecure.get(`/services/${serviceId}`)
                 .then(res => setService(res.data))
         }
     }, [])
@@ -48,7 +48,7 @@ const Booking = () => {
 
     return (
         <div>
-            <DashboardNavbar title="Book" name={fullName}></DashboardNavbar>
+            <DashboardNavbar title="Book"></DashboardNavbar>
             <div className="mt-10 ml-8 md:w-2/4">
                 <div>
                     <input className="p-4 mb-5 w-full" value={fullName} readOnly />

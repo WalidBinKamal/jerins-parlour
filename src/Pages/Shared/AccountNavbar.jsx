@@ -5,7 +5,6 @@ const AccountNavbar = () => {
     const lists = <>
         <li><NavLink to="/" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Home</NavLink></li>
         <li><NavLink to="/services" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Our Packages</NavLink></li>
-        <li><NavLink to="/contact" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Contact Us</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">

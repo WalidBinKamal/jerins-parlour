@@ -12,6 +12,11 @@ import BookingList from "../Pages/Dashboard/BookingList";
 import Review from "../Pages/Dashboard/Review";
 import PrivateRoute from "./PrivateRoute";
 import MyProfile from "../Pages/Dashboard/MyProfile";
+import AddService from "../Pages/Dashboard/AddService";
+import MakeAdmin from "../Pages/Dashboard/MakeAdmin";
+import ManageServices from "../Pages/Dashboard/ManageServices";
+import OrderList from "../Pages/Dashboard/OrderList";
+import AdminRoute from "./AdminRoute";
 
 const Router = createBrowserRouter([
   {
@@ -55,6 +60,22 @@ const Router = createBrowserRouter([
       {
         path: 'myProfile',
         element: <MyProfile></MyProfile>
+      },
+      {
+        path: 'addService',
+        element: <AdminRoute><AddService></AddService></AdminRoute>
+      },
+      {
+        path: 'makeAdmin',
+        element: <AdminRoute><MakeAdmin></MakeAdmin></AdminRoute>
+      },
+      {
+        path: 'manageServices',
+        element: <AdminRoute><ManageServices></ManageServices></AdminRoute>
+      },
+      {
+        path: 'orderList',
+        element: <AdminRoute><OrderList></OrderList></AdminRoute>
       },
     ]
   }

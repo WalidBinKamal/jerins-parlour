@@ -13,7 +13,6 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const MyProfile = () => {
     const { user: email } = useAuth();
     const [userData] = useUserData(email);
-    const fullName = `${userData?.firstName ?? ""} ${userData?.lastName ?? ""}`.trim();
     const axiosPublic = useAxiosPublic()
     const toast = useToast()
 
@@ -105,7 +104,7 @@ const MyProfile = () => {
 
     return (
         <div>
-            <DashboardNavbar title="My Profile" name={fullName} />
+            <DashboardNavbar title="My Profile"/>
             <div className="mt-10 ml-8 md:w-2/4">
                 <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
                     <div

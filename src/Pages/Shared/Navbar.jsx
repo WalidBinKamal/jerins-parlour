@@ -4,7 +4,7 @@ import useAuth from '../../Hooks/useAuth';
 import { BarLoader } from 'react-spinners';
 
 const Navbar = () => {
-    const { user, logout, loading, isLoggingOut, refetch } = useAuth()
+    const { user, logout, loading, isLoggingOut, refetch, isAdmin } = useAuth()
     const handleLogOut = () => {
         logout()
         refetch()
@@ -12,8 +12,12 @@ const Navbar = () => {
     const lists = <>
         <li><NavLink to="/" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Home</NavLink></li>
         <li><NavLink to="/services" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Our Packages</NavLink></li>
-        <li><NavLink to="/dashboard/booking" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Dashboard</NavLink></li>
-        <li><NavLink to="/contact" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Contact Us</NavLink></li>
+        {
+            isAdmin?.admin ?
+                <li><Link to="/dashboard/addService" className='md:px-10 md:py-2'>Dashboard</Link></li>
+                :
+                <li><Link to="/dashboard/booking" className='md:px-10 md:py-2'>Dashboard</Link></li>
+        }
         {
             user ?
                 <li><button onClick={handleLogOut} className='md:px-10 md:py-2'>Log Out</button></li>

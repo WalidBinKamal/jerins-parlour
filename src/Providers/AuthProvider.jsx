@@ -2,11 +2,13 @@ import { createContext, useState } from "react";
 import api from "../Hooks/api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import useToast from "../Hooks/useToast";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const queryClient = useQueryClient()
     const toast = useToast()
+    const axiosSecure = useAxiosSecure()
 
     // regsitering user
     const { mutate: signup, isLoading: signupLoading, error: signupError } = useMutation({
@@ -42,6 +44,7 @@ const AuthProvider = ({ children }) => {
         retry: false
     })
     const user = userData || null
+    const email = user
 
     // logOut User
     const { mutate: logout, isPending: isLoggingOut } = useMutation({
@@ -55,12 +58,23 @@ const AuthProvider = ({ children }) => {
         },
     })
 
+    // isAdmin
+    const { data: isAdmin, isPending: isAdminLoading } = useQuery({
+        queryKey: [user, 'isAdmin'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/users/admin/${email}`)
+            return res.data
+        }
+    })
+
     const authInfo = {
         user,
         login,
         signup,
         refetch,
         logout,
+        isAdmin,
+        isAdminLoading,
         loading,
         isError,
         loginLoading,

@@ -1,18 +1,14 @@
 import { Controller, useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
-import useUserData from "../../Hooks/useUserData";
 import DashboardNavbar from "../Shared/DashboardNavbar";
 import { Rating } from "@smastrom/react-rating";
 import { useRef } from "react";
-import { useMutation } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useToast from "../../Hooks/useToast";
 
 
 const Review = () => {
     const { user: email, } = useAuth()
-    const [userData, ,] = useUserData(email)
-    const fullName = userData.firstName + " " + userData.lastName
     const axiosSecure = useAxiosSecure()
     const toast = useToast()
 
@@ -38,7 +34,7 @@ const Review = () => {
     }
     return (
         <div>
-            <DashboardNavbar title="Booking List" name={fullName}></DashboardNavbar>
+            <DashboardNavbar title="Booking List"></DashboardNavbar>
             <div className="md:w-2/4 mt-10 ml-8">
                 <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
                     <input className="p-4 mb-1 w-full" {...register("name")} placeholder="Your Name" />

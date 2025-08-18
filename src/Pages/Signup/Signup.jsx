@@ -1,13 +1,10 @@
 import { useForm } from 'react-hook-form';
 import AccountNavbar from '../Shared/AccountNavbar';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import useAxiosPublic from '../../Hooks/useAxiosPublic';
-import api from '../../Hooks/api';
 import useAuth from '../../Hooks/useAuth';
-import Swal from 'sweetalert2';
 
 const Signup = () => {
-    const { signup, signupLoading, signupError } = useAuth()
+    const { signup } = useAuth()
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'

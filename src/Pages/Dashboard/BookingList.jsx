@@ -1,23 +1,20 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
-import useUserData from "../../Hooks/useUserData";
 import DashboardNavbar from "../Shared/DashboardNavbar";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const BookingList = () => {
     const { user: email, } = useAuth()
-    const [userData, ,] = useUserData(email)
     const axiosSecure = useAxiosSecure()
     const [bookings, setBookings] = useState([])
-    const fullName = userData.firstName + " " + userData.lastName
     useEffect(() => {
         axiosSecure.get(`/booking/${email}`)
             .then(res => setBookings(res.data))
     }, [])
     return (
         <div>
-            <DashboardNavbar title="Booking List" name={fullName}></DashboardNavbar>
-            <div className="m-12 md:grid grid-cols-2 justify-start gap-4">
+            <DashboardNavbar title="Booking List"></DashboardNavbar>
+            <div className="m-12 md:pl-8 md:grid grid-cols-2 justify-start gap-4">
                 {
                     bookings.length === 0?
                     <p className="text-xl">No bookings have been made.</p>
