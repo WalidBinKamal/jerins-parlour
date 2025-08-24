@@ -14,7 +14,7 @@ const Navbar = () => {
         <li><NavLink to="/services" className={({ isActive }) => `md:px-10 md:py-2 ${isActive ? 'bg-pink-500 text-white font-semibold' : ''}`}>Our Packages</NavLink></li>
         {
             isAdmin?.admin ?
-                <li><Link to="/dashboard/addService" className='md:px-10 md:py-2'>Dashboard</Link></li>
+                <li><Link to="/dashboard/orderList" className='md:px-10 md:py-2'>Dashboard</Link></li>
                 :
                 <li><Link to="/dashboard/booking" className='md:px-10 md:py-2'>Dashboard</Link></li>
         }

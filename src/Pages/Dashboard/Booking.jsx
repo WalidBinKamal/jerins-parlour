@@ -27,7 +27,7 @@ const Booking = () => {
     const booking = {
         serviceId: service._id,
         email: userData.email,
-        name: service.title,
+        serviceName: service.title,
         description: service.description,
         image: service.image,
         status: "Pending",

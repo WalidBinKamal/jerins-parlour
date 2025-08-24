@@ -99,7 +99,6 @@ const MyProfile = () => {
                 }
             })
         reset()
-        console.log(newData)
     };
 
     return (
