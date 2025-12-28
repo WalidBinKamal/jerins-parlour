@@ -83,19 +83,81 @@ Ensure you have the following installed:
 
 ---
 
-### 📦 Backend Setup (Server)
+### 📦 Setup the Backend (Server)
 
-```bash
-git clone https://github.com/WalidBinKamal/jerins-parlour-server.git
-cd jerins-parlour-server
-npm install
+1. **Clone the server repository:**
 
-## 🔐 Environment Variables (Backend)
+   ```bash
+   git clone https://github.com/WalidBinKamal/jerins-parlour-server.git
+   cd jerins-parlour-server
+   ```
 
-Create a `.env` file in the root directory of the backend project:
+2. **Install dependencies:**
 
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
+   ```bash
+   npm install
+   ```
 
+3. **Environment Variables:**
+
+   Create a `.env` file in the `jerins-parlour-server` directory with the following (replace values accordingly):
+
+   ```env
+   PORT=5000
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret_key
+   ```
+
+4. **Run the server:**
+
+   ```bash
+   npm start
+   ```
+
+   The server will start on `http://localhost:5000`.
+
+---
+
+### 🎨 Setup the Frontend (Client)
+
+1. **Clone the client repository:**
+
+   ```bash
+   git clone https://github.com/WalidBinKamal/jerins-parlour.git
+   cd jerins-parlour
+   npm install
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the client:**
+
+   ```bash
+   npm start
+   ```
+
+   The client will be available at `http://localhost:5173`.
+
+---
+
+## ⚙️ Additional Notes
+
+-All application data is fetched dynamically via secured API calls
+
+-Admin dashboard allows managing services, reviews, and users
+
+-Designed with scalability, security, and maintainability in mind
+
+-Suitable for real-world service-based business applications
+
+---
+
+## 👨‍💻 Author
+
+**Walid Bin Kamal**  
+GitHub: https://github.com/WalidBinKamal
+---
