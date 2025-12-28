@@ -89,3 +89,13 @@ Ensure you have the following installed:
 git clone https://github.com/WalidBinKamal/jerins-parlour-server.git
 cd jerins-parlour-server
 npm install
+
+## 🔐 Environment Variables (Backend)
+
+Create a `.env` file in the root directory of the backend project:
+
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+
